@@ -66,6 +66,7 @@ class Academy(http.Controller):
         return '<h1>{}</h1>'.format(name)
         # no usar format en injecion de cadenas
 
+    # RUTAS DINAMICAS CON VALIDACION DE TIPO
     # ayuda: https://werkzeug.palletsprojects.com/en/1.0.x/routing/
     @http.route('/academy/<int:id>', auth='public', website=True)
     def int_teacher(self, id):
@@ -77,3 +78,15 @@ class Academy(http.Controller):
         """
         return '<h1>{} ({})</h1>'.format(id, type(id).__name__)
         # no usar format en injecion de cadenas
+
+    # CONVERTIDOR DE MODELOS
+    # ligas /academy/fernando-padilla-1
+    # /academy/1 y te redirecciona al de arriba
+    @http.route('/academy/<model("academy.teacher"):teacher>',
+                auth='public', website=True)
+    def model_teacher(self, teacher):
+        """Convertidor de modelos.
+
+        model('MODELO'):VARIABLE
+        """
+        return http.request.render('academy.biography', {'person': teacher})

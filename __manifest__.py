@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name': "Academy B&F",
     'category': 'Website',
@@ -11,7 +12,8 @@
     'data': [
         'views/template.xml',
         'views/attributes.xml',
-        'views/teacher.xml'
+        'views/teacher.xml',
+        'views/biography.xml',
     ],
     'demo': [
         'data/demo.xml',

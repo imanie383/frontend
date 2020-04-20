@@ -13,9 +13,13 @@
                     layout de bootstrap -->
                 <div class="container">
                     <t t-foreach="teachers" t-as="teacher">
+                        <!-- Slug: Es un metodo que se encarga de parcear un objeto contruye una url
+                        basada en el nombre y el id del record -->
                         <p>
-                            <t t-esc="teacher.id"/>
-                            <t t-esc="teacher.name"/>
+                            <a t-attf-href="/academy/{{ slug(teacher) }}">
+                                <t t-esc="teacher.id"/>
+                                <t t-esc="teacher.name"/>
+                            </a>
                         </p>
                     </t>
                 </div>
@@ -27,7 +31,7 @@
     xpath pero el cambio sera en todos los lugares-->
     <template id="teacher2" inherit_id="website.layout">
         <xpath expr="//main" position="inside">
-            Xpath
+            <!-- Xpath -->
         </xpath>
     </template>
 </odoo>

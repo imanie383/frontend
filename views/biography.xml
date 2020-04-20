@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Se usa Qweb para renderizar html -->
+    <template id="biography">
+        <!-- Mandamos llamar la plantilla principal website/views.xml#layout -->
+        <t t-call="website.layout">
+            <!-- Modificamos la variable del titulo -->
+            <t t-set="title">Academy</t>
+            <!-- Agregamos el tag structure para recibir drag / drop -->
+            <div class="oe_structure"/>
+            <div class="oe_structure">
+                <!-- se mete dentro de un container para que obedesca el 
+                    layout de bootstrap -->
+                <div class="container">
+                    <t t-esc="person.id"/>
+                    <t t-esc="person.name"/>
+                </div>
+            </div>
+            <div class="oe_structure"/>
+        </t>
+    </template>
+
+</odoo>
