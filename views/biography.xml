@@ -12,9 +12,17 @@
                 <!-- se mete dentro de un container para que obedesca el 
                     layout de bootstrap -->
                 <div class="container">
-                    <t t-esc="person.id"/>
-                    <t t-esc="person.name"/>
+                    <!-- <t t-esc="person.id"/> -->
+                    <!-- Cuando se usa un t-field no puede ser sobre un tag t -->
+                    <h3 t-field="person.name"/>
+                    <!-- Los t-field tienen t-options -->
+                    <p>
+                        Last modified date: 
+                        <i t-field="person.write_date" t-options="{'widget':'relative'}"></i> 
+                    </p>
                 </div>
+                <!-- Cuando se usa un t-field no puede ser sobre un tag t -->
+                <div t-field="person.biography"></div>
             </div>
             <div class="oe_structure"/>
         </t>
