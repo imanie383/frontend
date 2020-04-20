@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Se usa Qweb para renderizar html -->
+    <!-- Nombre del metodo creado en el controlador main -->
+    <template id="index">
+        <title>Academy</title>
+
+        
+        <!-- CICLOS -->
+        <t t-foreach="teachers" t-as="teacher">
+            <p t-esc="teacher"></p>
+            <!-- 
+            t-esc = escapar el valor
+            t-field = campo ORM
+            t-raw= COntenido sin escapar 
+            -->
+        </t>
+
+        <!-- CONDICIONANTES -->
+
+        <!-- el t se puse usar en el tag fantasma o en cualquier atqueta -->
+        <div t-if="1 == 1">
+            <p>Si COndicion </p>
+        </div>
+
+        <p t-if="5 == 6">Happy birthday!</p>
+        <p t-elif="'me' == 'root'">Welcome master!</p>
+        <p t-else="">Welcome!</p>
+
+        <!-- HELPERS -->
+
+        <t t-foreach="[1, 2, 3]" t-as="i">
+            <p><t t-esc="i"/></p>
+
+            <p>Value</p>
+            <p><t t-esc="i_value"/></p>
+
+            <p>Index</p>
+            <p><t t-esc="i_index"/></p>
+
+            <p>Size</p>
+            <p><t t-esc="i_size"/></p>
+
+            <!-- $as_index == 0 -->
+            <p>First</p>
+            <p><t t-esc="i_first"/></p>
+
+            <!-- $as_index + 1 == $as_size -->
+            <p>Last</p>
+            <p><t t-esc="i_last"/></p>
+
+            <p>Parity</p>
+            <p><t t-esc="i_parity"/></p>
+
+            <p>Even</p>
+            <p><t t-esc="i_even"/></p>
+
+            <p>Odd</p>
+            <p><t t-esc="i_odd"/></p>
+        </t>
+
+    </template>
+</odoo>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Se usa Qweb para renderizar html -->
+    <!-- Nombre del metodo creado en el controlador main -->
+    <template id="attributes">
+        <title>Academy</title>
+        
+        <!-- t-att-$name
+        an attribute called $name is created, the attribute value is evaluated and the result is set as the attribute’s value: -->
+        <div t-att-a="42"/>
+
+        <t t-foreach="['a', 'p', 'div']" t-as="tag">
+            <t t-raw=" tag + '> Elemento '  + tag + '>' "/>
+            <!-- 
+            y que me resulte esto?
+            <a>Elemento a</a>
+            <p>Elemento a</p>
+            <div>Elemento a</div> 
+            -->
+        </t>
+
+        <!-- DIFERENTES METODOS -->
+        <t t-foreach="[1, 2, 3]" t-as="item">
+            <li t-attf-class="row {{ (item_index % 2 == 0) and 'even' or 'odd' }}"><t t-esc="item"/></li>
+            <li t-attf-class="row {{ 'even' if (item_index % 2 == 0) else 'odd' }}"><t t-esc="item"/></li>
+            <li t-attf-class="row {{ {True: 'even', False: 'odd'}[ item_index % 2 == 0] }}"><t t-esc="item"/></li>
+        </t>
+
+        <!-- t-att=mapping
+        if the parameter is a mapping, each (key, value) pair generates a new attribute and its value: -->
+
+        <div t-att="{'a': 1, 'b': 2}"/>
+
+       <!--  t-att=pair
+        if the parameter is a pair (tuple or array of 2 element), the first item of the pair is the name of the attribute and the second item is the value: -->
+         <div t-att="['a','b']"/>
+
+         <!-- setting variables -->
+         <t t-set="foo" t-value="2 + 1"/>
+         <t t-set="name" t-value="'manuel'"/>
+         <t t-esc="foo"/>
+
+         <!-- calling sub-templates -->
+         <t t-call="academy.other-template">
+            <!-- IMPRIME EL t-raw=0 -->
+            <p>content 0 </p>
+            <p>content 1 </p>
+         </t>
+
+
+    </template>
+    <template id="other-template">
+        <div>
+            <h1>Template 2 <t t-esc="str(foo) + name "/> </h1>
+            <t t-esc="foo"/>
+            <!-- TRAE EL CONTENIDO DENTRO DE EL TAG T- todo el contenido de t-call -->
+            <t t-raw="0"/>
+        </div>
+    </template>
+</odoo>

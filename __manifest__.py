@@ -9,6 +9,8 @@
     # actulizar lista de aplicaciones desde la app. modeo debug
     # always loaded Importa el orden
     'data': [
+        'views/template.xml',
+        'views/attributes.xml'
     ],
     'instalable': True,
     'auto_install': True,
