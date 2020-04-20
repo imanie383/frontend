@@ -14,6 +14,7 @@
         'views/attributes.xml',
         'views/teacher.xml',
         'views/biography.xml',
+        'views/views.xml',
     ],
     'demo': [
         'data/demo.xml',

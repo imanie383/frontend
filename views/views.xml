@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ya con esto se crea el menu y te carga las vistas por default para el crud de tu modelo -->
+
+    <!-- Accion -->
+    <record id="action_academy_teacher" model="ir.actions.act_window">
+        <field name="name">Academy Teachers</field>
+        <field name="res_model">academy.teacher</field>        
+    </record>
+
+    <!-- Menus -->
+    <menuitem sequence="0" id="menu_academy" name="Academy"/>
+    <menuitem id="menu_academy_content" parent="menu_academy" name="Content"/>
+    <menuitem id="menu_academy_content_teachers" parent="menu_academy_content" action="action_academy_teacher" />
+    
+</odoo>
