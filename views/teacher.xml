@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Se usa Qweb para renderizar html -->
+    <!-- Nombre del metodo creado en el controlador main -->
+    <template id="teacher">
+        <title>Teachers</title>
+        <t t-foreach="teachers" t-as="teacher">
+            <p>
+                <t t-esc="teacher.id"/>
+                <t t-esc="teacher.name"/>
+            </p>
+        </t>
+
+    </template>
+</odoo>

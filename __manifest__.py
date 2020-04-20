@@ -10,7 +10,11 @@
     # always loaded Importa el orden
     'data': [
         'views/template.xml',
-        'views/attributes.xml'
+        'views/attributes.xml',
+        'views/teacher.xml'
+    ],
+    'demo': [
+        'data/demo.xml',
     ],
     'instalable': True,
     'auto_install': True,
