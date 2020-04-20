@@ -44,7 +44,9 @@ class Academy(http.Controller):
             ]}
         )
 
-    @http.route('/academy/teacher', auth='public')
+    # website indica que el controlador es parte del modulo website
+    # si no lo pones no podras usar las plantillas del lyout
+    @http.route('/academy/teacher', auth='public', website=True)
     def teacher(self, **kw):
         """Para la funcion render mandamos el xmlID.
 
@@ -56,3 +58,22 @@ class Academy(http.Controller):
             'academy.teacher',
             {'teachers': teachers.search([])}
         )
+
+    # RUTAS DINAMICA
+    @http.route('/a#cademy/<name>', auth='public', website=True)
+    def ruta_dinamica(self, name):
+        """Uso de rutas dinamicas."""
+        return '<h1>{}</h1>'.format(name)
+        # no usar format en injecion de cadenas
+
+    # ayuda: https://werkzeug.palletsprojects.com/en/1.0.x/routing/
+    @http.route('/academy/<int:id>', auth='public', website=True)
+    def int_teacher(self, id):
+        """USO DE RUTAS DINAMICAS CON VALIDACION DE TIPO.
+
+        __name__ = obtiene el nombre de cualquier clase en python
+        type(id) = regresa el tipo de objeto = regresa un objeto
+        type(id).__name__ = regresa el nombre tipo de objeto (str)
+        """
+        return '<h1>{} ({})</h1>'.format(id, type(id).__name__)
+        # no usar format en injecion de cadenas

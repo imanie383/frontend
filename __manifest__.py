@@ -4,8 +4,8 @@
     'category': 'Website',
     'description': "Generic modulo for Bend And Frank",
     'version': '11.0',
-    # any module necessary for this one to work correctly
-    'depends': ['base', 'board'],
+    # instala el modulo de website, marca error en el modulo graph
+    'depends': ['website'],
     # actulizar lista de aplicaciones desde la app. modeo debug
     # always loaded Importa el orden
     'data': [

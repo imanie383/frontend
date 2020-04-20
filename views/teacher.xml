@@ -3,13 +3,31 @@
     <!-- Se usa Qweb para renderizar html -->
     <!-- Nombre del metodo creado en el controlador main -->
     <template id="teacher">
-        <title>Teachers</title>
-        <t t-foreach="teachers" t-as="teacher">
-            <p>
-                <t t-esc="teacher.id"/>
-                <t t-esc="teacher.name"/>
-            </p>
+        <!-- Mandamos llamar la plantilla principal website/views.xml#layout -->
+        <t t-call="website.layout">
+            <!-- Modificamos la variable del titulo -->
+            <t t-set="title">Teachers</t>
+            <!-- Agregamos el tag structure para recibir drag / drop -->
+            <div class="oe_structure">
+                <!-- se mete dentro de un container para que obedesca el 
+                    layout de bootstrap -->
+                <div class="container">
+                    <t t-foreach="teachers" t-as="teacher">
+                        <p>
+                            <t t-esc="teacher.id"/>
+                            <t t-esc="teacher.name"/>
+                        </p>
+                    </t>
+                </div>
+            </div>
         </t>
+    </template>
 
+    <!-- Es lo mismo si la heredas y modificas el contenido con un 
+    xpath pero el cambio sera en todos los lugares-->
+    <template id="teacher2" inherit_id="website.layout">
+        <xpath expr="//main" position="inside">
+            Xpath
+        </xpath>
     </template>
 </odoo>
