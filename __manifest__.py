@@ -6,7 +6,8 @@
     'description': "Generic modulo for Bend And Frank",
     'version': '11.0',
     # instala el modulo de website, marca error en el modulo graph
-    'depends': ['website'],
+    # ya no se necesita poner website ya que sale depende de ella
+    'depends': ['website_sale'],
     # actulizar lista de aplicaciones desde la app. modeo debug
     # always loaded Importa el orden
     'data': [
@@ -20,5 +21,5 @@
         'data/demo.xml',
     ],
     'instalable': True,
-    'auto_install': True,
+    'auto_install': False,
 }
