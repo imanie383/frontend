@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Product item used by /shop and /shop/cart -->
+    <template id="products_item" inherit_id="website_sale.products_item">
+        <!-- Nunca poner un / al final del expr como expr="//h5/" marcara error -->
+
+        <!-- Agregando contenido despues de la clase -->
+        <xpath expr="//h5" position="after">
+            <p t-esc="product.id" ></p>
+        </xpath>
+        <!-- Cambiar los atributos de la etiqueta H5 -->
+        <xpath expr="//h5" position="attributes">
+            <attribute name="class" add="col-md-12" separator=" "/>
+        </xpath>
+    </template>
+</odoo>
