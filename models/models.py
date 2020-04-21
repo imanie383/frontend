@@ -16,4 +16,4 @@ class Teacher(models.Model):
     _name = 'academy.teacher'
     # se creo la tabla academy_teacher
     name = fields.Char(string='Name')
-    biography = fields.Html(string='biography')
+    biography = fields.Html(string='Biography')

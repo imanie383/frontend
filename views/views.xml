@@ -12,5 +12,25 @@
     <menuitem sequence="0" id="menu_academy" name="Academy"/>
     <menuitem id="menu_academy_content" parent="menu_academy" name="Content"/>
     <menuitem id="menu_academy_content_teachers" parent="menu_academy_content" action="action_academy_teacher" />
-    
+
+    <!-- VIEWS  -->
+    <record id="academy_teacher_form" model="ir.ui.view">
+        <field name="name">Academy Teachers Form</field>
+        <field name="model">academy.teacher</field>   
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!-- Si pones el grpu no necesitas poner los labes -->
+                    <group>
+                        <!-- <label for="name"/> -->
+                        <field name="name"/>
+                        <!-- <label for="biography"/> -->
+                        
+                    </group>
+                    <field name="biography" widget="html" width="100" />
+                </sheet>
+            </form>
+        </field>        
+    </record>
+
 </odoo>
