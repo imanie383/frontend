@@ -13,4 +13,20 @@
             <attribute name="class" add="col-md-12" separator=" "/>
         </xpath>
     </template>
+
+    <!-- Layout WEBSITE -->
+    <template id="layout" name="Main layout" inherit_id="website.layout">
+        <xpath expr="//t[@t-set='head_website']" position="inside">
+            <t t-set="global_categs" t-value="env['product.category'].search([('parent_id', '!=', False)])"/>
+        </xpath>
+    </template>
+
+    <!-- Submenu MODULO(carpeta).ID-delXML -->
+    <template id="frontend_layout" inherit_id="portal.frontend_layout">
+        <xpath expr="//div[@class='navbar-header']" position="after">
+            <t t-foreach="global_categs" t-as="cat">
+                <a t-att-href="cat.name"><t t-esc="cat.name"/></a>
+            </t>
+        </xpath>
+    </template>
 </odoo>
