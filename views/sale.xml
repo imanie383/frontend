@@ -23,7 +23,7 @@
 
     <!-- Submenu MODULO(carpeta).ID-delXML -->
     <template id="frontend_layout" inherit_id="portal.frontend_layout">
-        <xpath expr="//div[@class='navbar-header']" position="after">
+        <xpath expr="//div[hasclass('navbar-header')]" position="after">
             <t t-foreach="global_categs" t-as="cat">
                 <a t-att-href="cat.name"><t t-esc="cat.name"/></a>
             </t>
