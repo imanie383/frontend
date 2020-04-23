@@ -11,6 +11,7 @@
     # actulizar lista de aplicaciones desde la app. modeo debug
     # always loaded Importa el orden
     'data': [
+        'views/assets.xml',
         'views/template.xml',
         'views/attributes.xml',
         'views/teacher.xml',
