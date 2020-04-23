@@ -25,6 +25,7 @@ odoo.define('academy.dog', function(require) {
 	var dog = new Dog();
 	dog.move();
 
+	/* Si en return marca error rejected  de load module*/
 	return Dog;
 
 }); 

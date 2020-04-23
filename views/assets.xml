@@ -4,6 +4,7 @@
 		<xpath expr="//script[last()]" position="after">
 			<script type="text/javascript" src="/academy/static/src/js/animal.js" />
 			<script type="text/javascript" src="/academy/static/src/js/dog.js" />
+			<script type="text/javascript" src="/academy/static/src/js/hamster.js" />
 		</xpath>
 	</template>
 </odoo>
