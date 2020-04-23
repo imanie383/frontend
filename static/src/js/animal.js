@@ -35,4 +35,7 @@ odoo.define('academy.animal', function (require){
 	animal.move();
 	animal.eat();
 
+	// Regresas el contructor de la clase
+	return Animal;
+
 }); 
