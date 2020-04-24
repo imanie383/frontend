@@ -12,6 +12,7 @@
                 <!-- se mete dentro de un container para que obedesca el 
                     layout de bootstrap -->
                 <div class="container">
+                    <!-- CICLO PARA PINTAR LA LIGA A LOS MAESTROS -->
                     <t t-foreach="teachers" t-as="teacher">
                         <!-- Slug: Es un metodo que se encarga de parcear un objeto contruye una url
                         basada en el nombre y el id del record -->
@@ -22,10 +23,35 @@
                             </a>
                         </p>
                     </t>
+
+                    <!-- BOTON PARA EL CONTADOR -->
                     <div class="counter">
                         <span class="value"></span>
                         <button>Incrementme</button>
                     </div>
+
+                    <!-- BOTON PARA MANDAR LLAMAR UN RPC -->
+                    <div class="rpc-container">
+                        <button class="btn btn-primary btn-lg rpc-Button">Do a RPC Call!</button>
+                    </div>
+
+                    <!-- RPC DINAMICO -->
+                    <t t-foreach="teachers" t-as="teacher">
+                        <!-- Slug: Es un metodo que se encarga de parcear un objeto contruye una url
+                        basada en el nombre y el id del record -->
+                        <p class="rpc-container-a" t-att-data-teacher-id="teacher.id" >
+                            <a class="rpc-Button-a" href="#">
+                                <t t-esc="teacher.id"/>
+                                <t t-esc="teacher.name"/>
+                            </a>
+                        </p>
+                    </t>
+
+                    <div class="biography">
+                        <button class="btn btn-primary btn-lg rpc-Button">Do a RPC Call!</button>
+                    </div>
+
+
                 </div>
             </div>
         </t>
