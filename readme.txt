@@ -52,3 +52,13 @@ Declarar al final todos los valores exportados, no tratar de exportar muchas var
 Con web.dom_ready estas seguro que tu modulo se carga que que todo esta cargado/listo
 
 No tratar de hacer mas de un modulo en un solo archivo
+
+
+PRUEBAS
+
+1.- UNITARIAS:
+	Probar el metodo aislado
+2.- PRUEBAS DE INTEGRACION
+	Probar varios métodos simulando un escenario
+3.- PRUEBAS END-TO-END
+	Simular a un usuario haciendo cosas

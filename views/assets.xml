@@ -7,6 +7,7 @@
 			<script type="text/javascript" src="/academy/static/src/js/hamster.js" />
 			<script type="text/javascript" src="/academy/static/src/js/counter.js" />
 			<script type="text/javascript" src="/academy/static/src/js/demo_rpc.js" />
+			<script type="text/javascript" src="/academy/static/src/js/academy_tour.js" />
 		</xpath>
 	</template>
 </odoo>
