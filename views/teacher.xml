@@ -29,6 +29,7 @@
                         <span class="value"></span>
                         <button>Incrementme</button>
                     </div>
+                    <br/>
 
                     <!-- BOTON PARA MANDAR LLAMAR UN RPC -->
                     <div class="rpc-container">
@@ -46,11 +47,24 @@
                             </a>
                         </p>
                     </t>
-
+                    <!-- DONDE PINTAR LA BIOGRAFIA -->
                     <div class="biography">
-                        <button class="btn btn-primary btn-lg rpc-Button">Do a RPC Call!</button>
                     </div>
 
+
+                    <h4>RPC CONTROLLER</h4>
+
+                     <!-- BOTON PARA MANDAR LLAMAR RPC A UN CONTROLADOR -->
+                    <t t-foreach="teachers" t-as="teacher">
+                        <!-- Slug: Es un metodo que se encarga de parcear un objeto contruye una url
+                        basada en el nombre y el id del record -->
+                        <p class="rpc-container-c" t-att-data-teacher-id="teacher.id" >
+                            <a class="rpc-Button-c" href="#">
+                                <t t-esc="teacher.id"/>
+                                <t t-esc="teacher.name"/>
+                            </a>
+                        </p>
+                    </t>
 
                 </div>
             </div>

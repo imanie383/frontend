@@ -1,4 +1,4 @@
-//Ejemplo de un RPC
+//Ejemplo de un RPC -- odoo/addons/web/static/src/js/core/rpc.js
 odoo.define('academy.demo_rpc', function (require){
 	'use strict';
 
@@ -11,9 +11,12 @@ odoo.define('academy.demo_rpc', function (require){
 	require('web.dom_ready');
 
 	var RpcButton = Widget.extend({
+		/*Para poder usar la clase RPC dentro de las funciones*/
+		self : this,
 		events:{
 			'click .rpc-Button': 'onClick',
-			'click .rpc-Button-a': 'onClicka'
+			'click .rpc-Button-a': 'onClicka',
+			'click .rpc-Button-c': 'onClickc'
 		},
 		init: function(parent, options){
 			//cuando sobrescrives el init de un widget deves mandar _super(parent)
@@ -42,6 +45,7 @@ odoo.define('academy.demo_rpc', function (require){
 
 			});
 		},
+		/*RPC con un modelo y href*/
 		onClicka: function(){
 			console.log('Clicked-a');
 			rpc.query({
@@ -63,8 +67,22 @@ odoo.define('academy.demo_rpc', function (require){
 			});
 
 		},
+		/*RPC a un controlador*/
+		onClickc: function(){
+			console.log('Clicked-c');
+			console.log(this.$el.data('teacher-id'));
+			rpc.query({
+				route: '/academy/search_teacher',
+				params: {
+					teacher_id:this.$el.data('teacher-id'),
+				}
+			}).then(function(data){
+				console.log(data);
+			});
+
+		},
 		ejemplo: function(){
-			pc.query({
+			rpc.query({
 				/*Trae el array de los maestros*/
 				model: 'academy.teacher',
 				method: 'search', //regresa los ID
@@ -89,6 +107,13 @@ odoo.define('academy.demo_rpc', function (require){
 
 	//buindea los href
 	$('.rpc-container-a').each(function (idx){
+		var elem = $(this);
+		var button = new RpcButton(null, elem.data());
+		button.attachTo(elem); 
+	});
+
+	//buindea el boton del controlador
+	$('.rpc-container-c').each(function (idx){
 		var elem = $(this);
 		var button = new RpcButton(null, elem.data());
 		button.attachTo(elem); 

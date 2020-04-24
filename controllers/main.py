@@ -90,3 +90,21 @@ class Academy(http.Controller):
         model('MODELO'):VARIABLE
         """
         return http.request.render('academy.biography', {'person': teacher})
+
+    # RPC A UN CONTROLADOR
+    # Por defecto el type = http
+    @http.route('/academy/search_teacher', type='json',
+                auth='public', website=True)
+    def search_teacher(self, **kw):
+        """Para la funcion render mandamos el xmlID.
+
+        nombre de la app=carpeta + id del template.
+        Atributos Qweb
+        """
+        teacher_obj = http.request.env['academy.teacher']
+        teachers = teacher_obj.search_read(
+            [('id', '=', kw.get('teacher_id'))],
+            fields=['biography'],
+        )
+        # print(teachers)
+        return teachers
